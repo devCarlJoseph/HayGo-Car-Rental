@@ -11,7 +11,7 @@
   <title>Home</title>
 </head>
 <body>
-  <span><strong>WELCOME</strong></span>
+  <span><strong>WELCOME MGA BOSS!</strong></span>
   <form action="/php-login-with-session/logout.php" method="post">
     <input type="submit" value="LOGOUT" />
   </form>
