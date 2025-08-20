@@ -1,0 +1,60 @@
+<?php 
+session_start();
+require_once "config/config.php"; 
+
+if (isset($_POST['sign-up'])) {
+    $email = trim($_POST['email']);   
+    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+    $position = $_POST['position'];
+
+    $stmt = $conn->prepare("SELECT admin_email FROM admins WHERE admin_email = ?");
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $stmt->store_result();
+    
+    if ($stmt->num_rows > 0) {
+        $_SESSION['sign-up_error'] = 'Email is already registered!';
+        $_SESSION['active_form'] = 'sign-up';
+        header("Location: sign-up.php");
+        exit();
+    } else {
+        $insert = $conn->prepare("INSERT INTO admins (admin_email, admin_pass, position) VALUES (?, ?, ?)");
+        $insert->bind_param("sss", $email, $password, $position);
+        $insert->execute();
+
+        $_SESSION['success'] = "Account created successfully! Please log in.";
+        header("Location: index.php"); 
+        exit();
+    }
+}
+
+if (isset($_POST['login'])) {
+    $email = trim($_POST['email']);
+    $password = $_POST['password'];
+
+    $stmt = $conn->prepare("SELECT admin_email, admin_pass, position FROM admins WHERE admin_email = ?");
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        $user = $result->fetch_assoc();
+        
+        if (password_verify($password, $user['admin_pass'])) {    
+            $_SESSION['email'] = $user['admin_email'];
+
+            if ($user['position'] === 'Admin') {
+                header("Location: admin_page.php");
+            } else {
+                header("Location: fleet_owner.php");
+            }
+            exit();
+        }
+    }
+
+    $_SESSION['login_error'] = 'Incorrect email or password';
+    $_SESSION['active_form'] = 'login';
+    header("Location: sign-up.php");
+    exit();
+}
+?>
