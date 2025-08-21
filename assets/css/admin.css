@@ -1,0 +1,100 @@
+body {
+    background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+}
+
+span {
+    color: #7494ec;
+}
+
+.box p {
+    font-size: 22px;
+}
+
+.admin-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.2rem;
+    margin-right: 3rem;
+}
+
+.logout button {
+    display: block;
+    width: 7rem;
+    height: 2.3rem;
+    margin: 0 auto;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+
+.box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20rem;
+}
+
+.box h1 {
+    font-size: 8rem;
+    color: red;
+}
+
+.box span {
+    font-size: 2rem;
+}
+
+
+header {
+    height: 5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f1f1f1;
+}
+
+.head-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 3rem;
+}
+
+.logo-add {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.2rem;
+}
+
+.logo-add img {
+    width: 4rem;
+    height: 4rem;
+}
+
+.logo-add h2 {
+    font-size: 1.3rem;
+
+}
+
+.adcont {
+    display: flex;
+    gap: 0.5rem;
+    margin-right: 2rem;
+}
+
+.adicon {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background: #b4b3b3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.adname p {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #2a4953;
+}

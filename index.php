@@ -29,7 +29,8 @@ function isActiveForm($formName, $activeForm) {
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <div class="hero">
+    <div class="body">
+        <div class="hero">
         <div class="container">
             <!-- LOGIN -->
             <div class="form-box <?= isActiveForm('login', $activeForm); ?>" id="login-form">
@@ -55,9 +56,6 @@ function isActiveForm($formName, $activeForm) {
                     <p>Don't have an account? <a href="#" onclick="showForm('sign-up-form')">Register</a></p>
                 </form>
             </div>
-            <div>
-
-            </div>
 
             <!-- SIGN UP -->
             <div class="form-box <?= isActiveForm('sign-up', $activeForm); ?>" id="sign-up-form">
@@ -73,6 +71,7 @@ function isActiveForm($formName, $activeForm) {
                 <form action="sign_up.php" method="post">
                     <h2>Create Account</h2>
                     <?= showError($errors['sign-up']); ?>
+                    <input type="text" name="name" placeholder="Username" required>
                     <input type="email" name="email" placeholder="Email" required>
                     <input type="password" name="password" placeholder="Password" required>
                     <select name="position" required>
@@ -84,13 +83,13 @@ function isActiveForm($formName, $activeForm) {
                     <p>Already have an account? <a href="#" onclick="showForm('login-form')">Log In</a></p>
                 </form>
             </div>
-        </div>
+         </div>
 
-        <div class="hero-image">    
-            <img src="assets/images/car.png">
+            <div class="hero-image">    
+                <img src="assets/images/car.png">
+            </div>
         </div>
     </div>
-    
 
     <script src="assets/js/script.js"></script>
 </body>

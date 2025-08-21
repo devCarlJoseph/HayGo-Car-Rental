@@ -1,10 +1,12 @@
+@import url(admin.css);
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
+.body {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -63,7 +65,7 @@ select {
 }
 
 button {
-    width: 20rem;
+    width: 10rem;
     height: 3rem;
     font-size: 1.2rem;
     font-weight: 700;
@@ -72,6 +74,10 @@ button {
     border-radius: 0.3rem;
     color: white;
     cursor: pointer;
+}
+
+button:hover {
+    background: #4c4cff;
 }
 
 p {
@@ -90,24 +96,6 @@ p {
 
 h1 {
     font-size: 50px;
-}
-
-span {
-    color: #7494ec;
-}
-
-.box p {
-    font-size: 22px;
-}
-
-.box button {
-    display: block;
-    width: 300px;
-    margin: 0 auto;
-}
-
-.box {
-    text-align: center;
 }
 
 .main {
@@ -132,6 +120,10 @@ span {
 .greetings h4, 
 .greetings h2 {
     text-align: center;
+}
+
+.greetings h4 {
+    margin-top: -1.2rem;
 }
 
 .identify {
